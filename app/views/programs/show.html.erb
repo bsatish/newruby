@@ -1,0 +1,218 @@
+<% provide(:title, @program.program_name) %>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span> / <%= link_to "Programs", programs_path %> / <%= @program.program_name %></p>    
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <h3><%= @program.program_name %></h3>
+        <hr>
+        <% if @program.accepting_applications == "t" %><h5><span class="label label-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enrolling Now</h5><% end %>
+        <% if @program.accepting_applications == "f" %><h5><span class="label label-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Not Enrolling</h5><% end %>
+        <% if @program.site_status == "Not Updated" %><h5><span class="label label-default"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Out of Date Information</h5><% end %>
+        <p>Application Deadline: </p>
+        <p>Program Hours: <%= @program.program_start_time %>-<%= @program.program_end_time %></p>
+        </br>
+        <p><%= @program.program_description %></p>
+        
+        <hr>
+        <div class="col-md-3">
+          <h5>Requirements</h5>
+        </div>
+        <div class="col-md-9">
+          
+          <ul>
+            <% if @program.req_dc_resident == "t" %>
+            <li>Washington, DC Resident</li>
+            <% end %>
+            <% if @program.min_age != nil %>
+            <li>Minimum Age: <%= @program.min_age %></li>
+            <% end %>
+            <% if @program.max_age != nil %>
+            <li>Maximum Age: <%= @program.max_age %></li>
+            <% end %>
+            <% if @program.req_drug_test == "t" %>
+            <li>Drug Testing</li>
+            <% end %>
+            <% if @program.req_vaccination == "t" %>
+            <li>Vaccinations</li>
+            <% end %>
+            <% if @program.math_CASAS_score != nil %>
+            <li>Minimum Math CASAS Score: <%= @program.math_CASAS_score %></li>
+            <% end %>
+            <% if @program.reading_CASAS_score != nil %>
+            <li>Minimum Reading CASAS Score: <%= @program.reading_CASAS_score %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-12"><hr></div>
+        <div class="col-md-3">
+          <h5>Credentials and Programs</h5>
+        </div>
+        <div class="col-md-9">
+          <p>
+          <ul>
+            <% if @program.credential_nedp == "t" %>
+            <li>National External Diploma Program (NEDP)</li>
+            <% end %>
+            <% if @program.credential_ged == "t" %>
+            <li>GED (General Educational Development)</li>
+            <% end %>
+            <% if @program.credential_hs_diploma == "t" %>
+            <li>High School Diploma</li>
+            <% end %>
+            <% if @program.credential_servsafe == "t" %>
+            <li>Serv Safe</li>
+            <% end %>
+            <% if @program.credential_ic3 == "t" %>
+            <li>Digital Literacy Certificate IC3</li>
+            <% end %>
+            <% if @program.class_hs_diploma == "t" %>
+            <li>English Basic Education (Math and Reading)</li>
+            <% end %>
+            <% if @program.rec_spanish_instruction == "t" %>
+            <li>Bilingual Instruction - Spanish</li>
+            <% end %>
+            <% if @program.class_english_language == "t" %>
+            <li>English as a Second Language</li>
+            <% end %>
+            <% if @program.class_computer_literacy == "t" %>
+            <li>Computer Literacy</li>
+            <% end %>
+            <% if @program.class_workforce_readiness == "t" %>
+            <li>Workforce Readiness Training</li>
+            <% end %>
+            <% if @program.class_barbering == "t" %>
+            <li>Barbering Classes</li>
+            <% end %>
+            <% if @program.class_cosmetology == "t" %>
+            <li>Cosmetology Classes</li>
+            <% end %>
+            <% if @program.class_computer == "t" %>
+            <li>Computer/Information Technology Classes</li>
+            <% end %>
+            <% if @program.class_hvac == "t" %>
+            <li>Technician Classes (HVAC)</li>
+            <% end %>
+            <% if @program.class_medical == "t" %>
+            <li>Medical Services Classes</li>
+            <% end %>
+            <% if @program.class_construction == "t" %>
+            <li>Construction Training</li>
+            <% end %>
+          </ul>
+          </p>
+        </div>
+        
+        <div class="col-md-12"><hr></div>
+        <div class="col-md-3">
+          <h5>Additional Supports and Services</h5>
+        </div>
+        <div class="col-md-9">
+          <ul>
+            <% if @program.rec_project_based_learning == "t" %>
+            <li>Project Based Learning</li>
+            <% end %>
+            <% if @program.rec_dual_enrollment == "t" %>
+            <li>Dual College Enrollment</li>
+            <% end %>
+            <% if @program.rec_online_courses == "t" %>
+            <li>Online Courses</li>
+            <% end %>
+            <% if @program.rec_internships == "t" %>
+            <li>Internships/On Job Training</li>
+            <% end %>
+            <% if @program.rec_night_classes == "t" %>
+            <li>Night Classes Offered</li>
+            <% end %>
+            <% if @program.rec_childcare == "t" %>
+            <li>Childcare</li>
+            <% end %>
+            <% if @program.rec_childcare_subsidy == "t" %>
+            <li>Childcare Subsidy</li>
+            <% end %>
+            <% if @program.rec_parenting_support == "t" %>
+            <li>Parenting Support</li>
+            <% end %>
+            <% if @program.rec_independent_living == "t" %>
+            <li>Independent Living</li>
+            <% end %>
+            <% if @program.rec_housing_emergency_shelter == "t" %>
+            <li>Housing/Emergency Shelter</li>
+            <% end %>
+            <% if @program.rec_case_management == "t" %>
+            <li>Case Management</li>
+            <% end %>
+            <% if @program.rec_stipend == "t" %>
+            <li>Student Stipend</li>
+            <% end %>
+            <% if @program.rec_onsite_accomodations == "t" %>
+            <li>On-site Accomodations</li>
+            <% end %>
+            <% if @program.rec_mental_health_services == "t" %>
+            <li>Mental Health Services</li>
+            <% end %>
+            <% if @program.rec_meals == "t" %>
+            <li>Food Provided</li>
+            <% end %>
+            <% if @program.rec_alumni_support == "t" %>
+            <li>Alumni Support</li>
+            <% end %>
+            <% if @program.rec_food_bank == "t" %>
+            <li>Food Bank</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      </div>
+  </div>
+
+  <div class="col-md-4"> <!-- Side Program Info Panel -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Program Information</h3>
+      </div>
+      <div class="panel-body">
+        <div class="map-container"><div id="map"></div></div>
+        
+        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @program.address %></p>
+        <p><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= @program.building_open_time %>-<%= @program.building_close_time %></p>
+        <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @program.phone_number %></p>
+        <p><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= link_to @program.website_url, @program.website_url %></p>
+        
+      </div>
+    </div>
+  </div>
+    
+  </div>
+</div>
+
+
+<script>
+var map;
+function initMap() {
+  var myLatLng = {lat: <%= @program.address_latitude %>, lng: <%= @program.address_longitude %>};
+        
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: myLatLng
+  });
+  
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: '<%= @program.program_name %>'
+  });
+};
+
+marker.setMap(map);
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpTc_dX23-YA81gEEceAPRNlf2VLQi6BI&callback=initMap" async defer></script>

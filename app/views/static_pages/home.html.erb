@@ -1,0 +1,88 @@
+<% provide(:title, "DC ReEngagement Center") %>
+
+<div class="container-fluid home-hero">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 home-hero-textbox">
+        <h1>Let's help you get back on track.</h1>
+        <h3>This website is a one-stop resource for District residents of all ages who want to get back on track with their plans to pursue a secondary education credential and a career pathway.</h3>
+        <h5><div class="btn btn-info" data-toggle="modal" data-target="#videoModal"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Watch Video</div>
+        <div class="btn btn-info btn-fill" data-toggle="modal" data-target="#matchModal"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find a Program Now</div></h5>
+      </div>
+    </div>
+</div>
+
+<!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <br>
+          </div>
+          <div class="modal-body">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe id="introvideo" src="https://www.youtube.com/embed/2ih0iH1KIMo" allowscriptaccess frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="text-center">
+              <h5><div class="btn btn-info btn-fill btn-lg" data-toggle="modal" data-target="#matchModal"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find a Program Now</div></h5>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<!-- Match Form -->
+    <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <br>
+          </div>
+          <div class="modal-body">
+            <h5>Answer the questions below to find programs in Washington, DC that help students attain a high school credential and much more.</h5>
+            <hr>
+            <h5>How Old Are You?</h5>
+            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Age">
+            <h5>What Are Your Academic Goals?</h5>
+            <div class="checkbox">
+              <label><input type="checkbox"> High School Credential or Equivalent</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Career Training</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Learn English</label>
+            </div>
+            <h5>Additional Services/Offerings</h5>
+            <div class="checkbox">
+              <label><input type="checkbox"> Childcare Provided</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Housing Provided</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Night Classes</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Job Placement</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Post Secondary Placement</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="left-side">
+              <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+            </div>
+            <div class="divider"></div>
+            <div class="right-side">
+              <%= link_to "Submit", match_path, :class => "btn btn-info btn-simple" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

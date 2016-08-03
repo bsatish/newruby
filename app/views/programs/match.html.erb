@@ -1,0 +1,43 @@
+<% provide(:title, "Your Matches") %>
+
+<div class="container">
+<div class="row">
+<h1 class="text-center">Check Out These Programs!</h1>
+<p class="text-center">Based on your answers, here are a few programs that might be a good fit.</p>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @matches.each do |program| %>
+    <div class="marketing col-lg-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= program.program_name %></h3>
+        </div>
+        <div class="panel-body">
+           <p><%= program.program_description.truncate(150) %></p>
+            <hr>
+            <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= program.address %></br>
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= program.phone_number %></p>
+            <hr>
+            <div class="text-center"><%= link_to "View More Details", program, class: "btn btn-default" %></div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h5 class="text-center">Can't find what you're looking for?</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center"><%= link_to 'Explore All Programs', programs_path, class: "btn btn-warning btn-fill" %></div>
+    <br>
+  </div>
+</div>
+<hr>

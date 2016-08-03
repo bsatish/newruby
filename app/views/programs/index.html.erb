@@ -1,0 +1,211 @@
+<% provide(:title, "Programs") %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-offset-3 col-md-6">
+        <h4>We found <span class="text-success"><%= @programs.count %></span> Program(s)</h4>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "Clear Filters", programs_path, :class => "navbar-right" %>
+      </div>
+    </div>
+  </div>
+  <div class="row row-offcanvas row-offcanvas-left">
+    
+    <!-- Sidebar Filters -->
+    <div class="col-md-3 col-sm-6 sidebar-offcanvas" id="sidebar" role="navigation"> 
+      
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <%= search_form_for @search do |f| %>
+          <div class="form-group">
+          <%= f.submit "Apply Filters", class: "btn btn-default col-md-12" %>
+          <div class="col-md-12"><hr></div>
+          <%= f.search_field :program_name_cont, class: "form-control", placeholder: "Search Programs by Name" %>
+          </br>
+          <%= f.search_field :max_age_gteq, class: "form-control", placeholder: "Student Age" %>
+          <hr>
+          <p>Secondary Credentials Offered</p>
+          <div class="col-md-12">
+          <%= f.check_box :credential_hs_diploma_true %>
+          <%= f.label :credential_hs_diploma_true, "High School Diploma" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :credential_ged_true %>
+          <%= f.label :credential_ged_true, "GED" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :credential_nedp_true %>
+          <%= f.label :credential_nedp_true, "NEDP" %>
+          </div>
+         
+          <p>Additional Program Offerings</p>
+          <div class="col-md-12">
+          <%= f.check_box :class_english_language_true %>
+          <%= f.label :class_english_language_true, "English Classes" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :class_workforce_readiness_true %>
+          <%= f.label :class_workforce_readiness_true, "Workforce Readiness" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :class_job_training_true %>
+          <%= f.label :class_job_training_true, "Career Training" %>
+          </div>
+          <a class="btn btn-sm btn-simple" role="button" data-toggle="collapse" href="#collapseWorkforce" aria-expanded="false" aria-controls="collapseWorkforce">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> More Career Options
+          </a>
+          <div class="collapse" id="collapseWorkforce">
+            <div class="col-md-12">
+            <%= f.check_box :class_construction_true %>
+            <%= f.label :class_construction_true, "Construction" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_barbering_true %>
+            <%= f.label :class_barbering_true, "Barbering" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_cosmetology_true %>
+            <%= f.label :class_cosmetology_true, "Cosmetology" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_childcare_true %>
+            <%= f.label :class_childcare_true, "Childcare (CDA)" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_medical_true %>
+            <%= f.label :class_medical_true, "Medical Professional" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_culinary_true %>
+            <%= f.label :class_culinary_true, "Culinary Arts" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_construction_true %>
+            <%= f.label :class_construction_true, "Construction" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_computer_true %>
+            <%= f.label :class_computer_true, "Computers/IT" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :class_hvac_true %>
+            <%= f.label :class_hvac_true, "HVAC Technician" %>
+            </div>
+            <div class="col-md-12">
+            <%= f.check_box :rec_automotive_technology_true %>
+            <%= f.label :rec_automotive_technology_true, "Automotive Technology" %>
+            </div>
+          </div>
+          
+          <p>Additional Supports and Services</p>
+          <div class="col-md-12">
+          <%= f.check_box :rec_childcare_true %>
+          <%= f.label :rec_childcare_true, "Childcare Provided" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_spanish_instruction_true %>
+          <%= f.label :rec_spanish_instruction_true, "Bilingual Instruction" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_residential_program_true %>
+          <%= f.label :rec_residential_program_true, "Residential Program" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_night_classes_true %>
+          <%= f.label :rec_night_classes_true, "Night Classes" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_online_courses_true %>
+          <%= f.label :rec_online_courses_true, "Online Courses" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_meals_true %>
+          <%= f.label :rec_meals_true, "Meals Provided" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_stipend_true %>
+          <%= f.label :rec_stipend_true, "Student Stipend" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_job_placement_true %>
+          <%= f.label :rec_job_placement_true, "Job Placement" %>
+          </div>
+          <div class="col-md-12">
+          <%= f.check_box :rec_postsec_placement_true %>
+          <%= f.label :rec_postsec_placement_true, "Post Secondary Placement" %>
+          </div>
+          </div>
+        <% end %>
+      </div>
+      </div> <!-- End of Panel Body -->      
+    </div> <!-- End of Sidebar Filters -->
+    
+    <!-- Programs Results Table -->
+    <div class="col-md-9">
+      <div class="col-md-12 col-sm-12">
+      <button type="button" class="btn btn-default btn-fill btn-round visible-xs visible-sm" data-toggle="offcanvas" data-target=".sidbar-nav">Filters</button>
+      </div>
+      
+      <% if @programs.count == 0 %>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <h4>Sorry. No Results :(</h4>
+        </div>
+      </div>
+      </div>
+      </div>
+      <% end %>
+      
+      <div class="row">
+      <div class="col-md-12">
+      
+          <div class="list-group">
+            <% @programs.each do |program| %>
+              <% if program.site_status == "Not Updated" %>
+              
+              <div class="list-group-item disabled">
+              <h4 class="list-group-item-heading"><%= program.program_name %></h4>
+              <div class="list-group-item-text">
+              <p></p><%= program.program_description.truncate(200) %></p>
+              <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= program.address %></br>
+              <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= program.phone_number %></p>
+              </div>
+              </div>
+               
+              <% end %>
+            
+              <% if program.site_status != "Not Updated" %>
+              <%= link_to program, :class => "list-group-item" do %>
+              <h4 class="list-group-item-heading"><%= program.program_name %></h4>
+              <% if program.accepting_applications == "t" %><p><span class="label label-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enrolling Now</span></p><% end %>
+              <% if program.accepting_applications == "f" %><p><span class="label label-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Not Enrolling</span></p><% end %>
+              <div class="list-group-item-text">
+              <p></p><%= program.program_description.truncate(200) %></p>
+              <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= program.address %></br>
+              <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= program.phone_number %></p>
+              </div>
+              <% end %>  
+              <% end %>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <!-- will paginate links -->
+        </div>
+      </div>
+      </div>
+
+        
+      </div> <!-- End of Main Section -->
+    </div>
+  </div>
+</div>
+</div>
